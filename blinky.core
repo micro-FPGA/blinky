@@ -88,6 +88,11 @@ filesets:
     files:
       - ax309/blinky.ucf : {file_type : UCF}
 
+  axc3000:
+    files:
+      - axc3000/axc3000.sdc : {file_type : SDC}
+      - axc3000/axc3000.tcl  : {file_type: tclSource}
+
   axe5000:
     files:
       - axe5000/axe5000.sdc : {file_type : SDC}
@@ -747,6 +752,16 @@ targets:
         package : ftg256
         speed   : -3
     toplevel : blinky
+
+  axc3000:
+    default_tool : quartus
+    filesets : [rtl, axc3000]
+    parameters : [clk_freq_hz=25000000]
+    tools:
+      quartus:
+        family : Agilex 3
+        device : A3CY100BM16AE7S
+    toplevel: blinky
 
   axe5000:
     default_tool : quartus
