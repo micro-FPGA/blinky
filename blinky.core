@@ -93,6 +93,11 @@ filesets:
       - axe5000/axe5000.sdc : {file_type : SDC}
       - axe5000/axe5000.tcl  : {file_type: tclSource}
 
+  axe5_falcon:
+    files:
+      - axe5_falcon/axe5_falcon.sdc : {file_type : SDC}
+      - axe5_falcon/axe5_falcon.tcl  : {file_type: tclSource}
+
   axku5:
     files:
       - axku5/blinky_axku5.v : {file_type : verilogSource}
@@ -751,6 +756,16 @@ targets:
       quartus:
         family : Agilex 5
         device : A5EC008BM16AE6S
+    toplevel: blinky
+
+  axe5_falcon:
+    default_tool : quartus
+    filesets : [rtl, axe5_falcon]
+    parameters : [clk_freq_hz=25000000]
+    tools:
+      quartus:
+        family : Agilex 5
+        device : A5EE013BB23BE6SCS
     toplevel: blinky
 
   axku5:
